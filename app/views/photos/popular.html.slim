@@ -1,4 +1,6 @@
-h1 500px photos
+h1 Most popular right now
 
-- @photos.each do |p|
-  = image_tag p.image_url
+.photos
+  - @photos.each do |p|
+    .photo
+      = image_tag p.image_url

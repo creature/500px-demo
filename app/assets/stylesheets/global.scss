@@ -1,0 +1,22 @@
+/* 'Global' stylesheet, ie. app-wide. */
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #EEE;
+  color: #22313F;
+}
+
+main {
+  @include outer-container;
+}
+
+header {
+  background-color: #6C7A89;
+  color: #EEE;
+  text-align: center;
+  min-height: 80px;
+
+  h1 {
+    margin-top: 0;
+  }
+}

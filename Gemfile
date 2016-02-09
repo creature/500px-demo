@@ -12,6 +12,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails' # Templating library
 gem 'f00px' # 500px API client
+gem 'neat' # CSS grid framework
+gem 'normalize-rails' # CSS reset (kinda)
 
 group :development, :test do
   gem 'byebug'

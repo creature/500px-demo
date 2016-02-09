@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def popular
-    @photos = photos_from_json(F00px.popular(rpp: 100, image_size: 31).body).reject(&:nsfw)
+    @photos = photos_from_json(F00px.popular(rpp: 100, image_size: 600).body).reject(&:nsfw)
   end
 
   protected
