@@ -1,15 +1,11 @@
 class PhotosController < ApplicationController
   def popular
-    @photos = photos_from_json(F00px.popular(rpp: 100, image_size: 600).body).reject(&:nsfw)
+    @photos = photo_service.most_popular
   end
 
   protected
 
-  def photos_from_json(json)
-    data = JSON.parse(json)
-
-    data['photos'].map { |p| F00px::Photo.new(p['name'], p['image_url'], p['nsfw']) }
+  def photo_service
+    @service ||= FiveHundredPxService.new
   end
 end
-
-F00px::Photo = Struct.new(:name, :image_url, :nsfw)
