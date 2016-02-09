@@ -18,6 +18,10 @@ group :development, :test do
   gem 'dotenv-rails' # Loads environment variables from a .env file
 end
 
+group :test do
+  gem 'rspec-rails' # Testing framework
+end
+
 group :development do
   gem 'web-console', '~> 2.0'
 
