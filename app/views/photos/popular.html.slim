@@ -1,0 +1,6 @@
+h1 Most popular right now
+
+.photos
+  - @photos.each do |p|
+    .photo
+      = image_tag p.image_url

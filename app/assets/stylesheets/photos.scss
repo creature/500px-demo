@@ -1,0 +1,8 @@
+.photo {
+  @include span-columns(3);
+  @include omega(4n);
+
+  img {
+    max-width: 100%;
+  }
+}

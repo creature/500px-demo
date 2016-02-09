@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title 500px API demo
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  body
+    header
+      h1 500px API demo
+    main
+      == yield
+
