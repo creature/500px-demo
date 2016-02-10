@@ -14,9 +14,11 @@ gem 'slim-rails' # Templating library
 gem 'f00px' # 500px API client
 gem 'neat' # CSS grid framework
 gem 'normalize-rails' # CSS reset (kinda)
+gem 'omniauth' # oAuth library
+gem 'omniauth-500px' # 500px omniauth strategy
 
 group :development, :test do
-  gem 'byebug'
+  gem 'pry-remote' # Debugger that works nicely with Pow
   gem 'dotenv-rails' # Loads environment variables from a .env file
 end
 
@@ -26,7 +28,5 @@ end
 
 group :development do
   gem 'web-console', '~> 2.0'
-
-  gem 'spring'
 end
 
