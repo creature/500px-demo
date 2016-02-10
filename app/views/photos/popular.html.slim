@@ -3,4 +3,7 @@ h1 Most popular right now
 .photos
   - @photos.each do |p|
     .photo
-      = image_tag p.image_url
+      = link_to p.site_url
+        = image_tag p.image_url
+      .info
+        p #{link_to p.name, p.site_url} by #{p.user_name}

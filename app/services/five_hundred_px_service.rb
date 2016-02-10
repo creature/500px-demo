@@ -7,8 +7,12 @@ class FiveHundredPxService
 
   def photos_from_json(json)
     data = JSON.parse(json)
-    data['photos'].map { |p| FiveHundredPxService::Photo.new(p['name'], p['image_url'], p['nsfw']) }
+    data['photos'].map { |p| FiveHundredPxService::Photo.new(p['id'], p['name'], p['image_url'], p['nsfw'], p['user']['username']) }
   end
 end
 
-FiveHundredPxService::Photo = Struct.new(:name, :image_url, :nsfw)
+FiveHundredPxService::Photo = Struct.new(:id, :name, :image_url, :nsfw, :user_name) do
+  def site_url
+    "https://500px.com/photo/#{id}"
+  end
+end
