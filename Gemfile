@@ -11,7 +11,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails' # Templating library
-gem 'f00px' # 500px API client
+gem 'f00px', git: "git://github.com/500px/f00px.git" # 500px API client
 gem 'bourbon' # CSS helper functions
 gem 'neat' # CSS grid framework
 gem 'normalize-rails' # CSS reset (kinda)

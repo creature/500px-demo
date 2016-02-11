@@ -6,4 +6,11 @@ h1 Most popular right now
       = link_to p.site_url
         = image_tag p.image_url
       .info
-        p #{link_to p.name, p.site_url} by #{p.user_name}
+        p
+          | #{link_to p.name, p.site_url} by #{p.user_name}
+          - if @liked_ids.include? p.id
+            = link_to unlike_photo_path(p.id), class: "like"
+              = fa_icon "heart"
+          - else
+            = link_to like_photo_path(p.id), class: "like"
+              = fa_icon "heart-o"

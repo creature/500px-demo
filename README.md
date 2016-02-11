@@ -18,3 +18,4 @@ Presuming you have Ruby, git, and bundler installed already:
 
 - Trying to use Emoji in an app description when registering an app on 500px results in an unhelpful error screen: 
 ![public/screenshots/unhelpfulerror.png]
+- The [f00px gem](https://github.com/500px/f00px) has some [useful methods](https://github.com/500px/f00px/blob/master/lib/f00px/request.rb) in it, but hasn't had an official release [for about 3 years](https://libraries.io/rubygems/f00px).

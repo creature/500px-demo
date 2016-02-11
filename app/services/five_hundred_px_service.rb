@@ -16,6 +16,10 @@ class FiveHundredPxService
     @client.post("photos/#{id}/vote?vote=1")
   end
 
+  def unlike(id)
+    @client.delete("photos/#{id}/vote")
+  end
+
   protected
 
   def photos_from_json(json)
