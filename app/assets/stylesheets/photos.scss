@@ -9,13 +9,18 @@
   }
 
   .info {
-    background-color: $blackish;
+    background-color: transparentize($blackish, 0.3);
     color: $whiteish;
     position: absolute;
-    bottom: 0;
+    bottom: 3px;
     z-index: 10;
     min-width: 100%;
     font-size: 80%;
     padding: 0 1rem;
+  }
+
+  .like {
+    float: right;
+    display: inline-block;
   }
 }

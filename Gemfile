@@ -12,10 +12,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'slim-rails' # Templating library
 gem 'f00px' # 500px API client
+gem 'bourbon' # CSS helper functions
 gem 'neat' # CSS grid framework
 gem 'normalize-rails' # CSS reset (kinda)
 gem 'omniauth' # oAuth library
 gem 'omniauth-500px' # 500px omniauth strategy
+gem 'font-awesome-rails' # Icons and view helpers
 
 group :development, :test do
   gem 'pry-remote' # Debugger that works nicely with Pow

@@ -1,6 +1,19 @@
 class FiveHundredPxService
+  def initialize(token = nil, secret = nil)
+    @client = F00px::Client.new
+
+    if token && secret
+      @client.token = token
+      @client.token_secret = secret
+    end
+  end
+
   def most_popular(number = 100)
-    @photos = photos_from_json(F00px.popular(rpp: number, image_size: 600).body).reject(&:nsfw)
+    photos_from_json(@client.popular(rpp: number, image_size: 600).body).reject(&:nsfw)
+  end
+
+  def like(id)
+    @client.post("photos/#{id}/vote?vote=1")
   end
 
   protected
