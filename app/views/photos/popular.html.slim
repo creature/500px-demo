@@ -1,16 +1,10 @@
 h1 Most popular right now
 
-.photos
-  - @photos.each do |p|
-    .photo
-      = link_to p.site_url
-        = image_tag p.image_url
-      .info
-        p
-          | #{link_to p.name, p.site_url} by #{p.user_name}
-          - if @liked_ids.include? p.id
-            = link_to unlike_photo_path(p.id), class: "like"
-              = fa_icon "heart"
-          - else
-            = link_to like_photo_path(p.id), class: "like"
-              = fa_icon "heart-o"
+- if @photos.any?
+  .photos
+    = render partial: "photo", collection: @photos
+- else
+  .no_photos
+    = fa_icon "warning"
+    h2 No photos to show!
+    p Sorry, we couldn't retrieve the most popular images from 500px. Wait a few minutes, then try again.

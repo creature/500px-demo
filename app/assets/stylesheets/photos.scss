@@ -24,3 +24,21 @@
     display: inline-block;
   }
 }
+
+.no_photos {
+  @include shift(3);
+  @include span-columns(6);
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 2px solid darken($whiteish, 30%);
+  border-radius: 2rem;
+
+  p, i, h2 {
+    color: darken($whiteish, 30%);
+  }
+
+  i {
+    font-size: 400%;
+  }
+}
