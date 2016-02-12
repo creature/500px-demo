@@ -25,6 +25,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara' # Interact with web pages in our tests
   gem 'rspec-rails' # Testing framework
   gem 'simplecov', require: false # Code coverage metrics
   gem 'simplecov-console', require: false # Output code coverage report on the CLI.
