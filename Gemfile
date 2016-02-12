@@ -26,6 +26,8 @@ end
 
 group :test do
   gem 'rspec-rails' # Testing framework
+  gem 'simplecov', require: false # Code coverage metrics
+  gem 'simplecov-console', require: false # Output code coverage report on the CLI.
 end
 
 group :development do
