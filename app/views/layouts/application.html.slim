@@ -8,6 +8,19 @@ html
   body
     header
       h1 500px API demo
+      p
+        - if user_logged_in?
+          ' Logged in from 500px as #{user_name}
+          = link_to "Log out", "/logout", method: :delete
+        - else
+          = link_to "Login with 500px", "/auth/500px"
+
+    / Display flash messages
+    - unless notice.blank?
+      p.notice = notice
+    - unless alert.blank?
+      p.alert = alert
+
     main
       == yield
 
