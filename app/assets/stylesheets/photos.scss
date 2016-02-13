@@ -19,9 +19,14 @@
     padding: 0 1rem;
   }
 
-  .like {
-    float: right;
+  .caption {
+    width: calc(100% - 1rem);
     display: inline-block;
+  }
+
+  .like {
+    display: inline-block;
+    width: 1rem;
   }
 }
 
