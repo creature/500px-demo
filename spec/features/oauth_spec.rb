@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 describe "Logging in via oAuth" do
-  before do
-    allow_any_instance_of(SessionsController).to receive(:auth_hash).and_return(fake_omniauth_hash)
-  end
+  before { fake_login_via_omniauth }
 
   it "Allows a logged out user to log in" do
     visit root_path
@@ -44,14 +42,3 @@ describe "Logging in via oAuth" do
     within(".flash.alert") { expect(page).to have_content "Sorry" }
   end
 end
-
-def fake_omniauth_hash
-  OmniAuth::AuthHash.new({
-    provider: '500px',
-    uid: 12345,
-    info: { nickname: "Test user" },
-    credentials: { token: "fake token", secret: "fake secret" }
-  })
-end
-
-

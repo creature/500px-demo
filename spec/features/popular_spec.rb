@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "The 'Popular photos' page" do
-  before { allow_any_instance_of(PhotosController).to receive(:photo_service).and_return(MockFiveHundredPxService.new) }
+  before { use_mock_500px_service }
 
   it "Is accessible via the root path" do
     visit root_path
@@ -21,7 +21,7 @@ describe "The 'Popular photos' page" do
   end
 
   it "Displays a message to the user if there's nothing returned from 500px" do
-    allow_any_instance_of(PhotosController).to receive(:photo_service).and_return(EmptyFiveHundredPxService.new)
+    use_empty_500px_service
 
     visit root_path
     expect(page).to have_selector ".no_photos"
