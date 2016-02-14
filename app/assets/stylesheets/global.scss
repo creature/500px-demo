@@ -24,3 +24,25 @@ header {
 a {
   color: $blueish;
 }
+
+.flash {
+  text-align: center;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  &.notice {
+    background-color: #A2DED0;
+    color: darken(#A2DED0, 70%);
+    border: 2px solid darken(#A2DED0, 20%);
+  }
+
+  &.alert {
+    background-color: #F9BF3B;
+    color: darken(#F9BF3B, 70%);
+    border: 2px solid darken(#F9BF3B, 20%);
+  }
+
+}

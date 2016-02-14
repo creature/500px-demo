@@ -12,12 +12,14 @@ class FiveHundredPxService
     photos_from_json(@client.popular(rpp: number, image_size: 600).body).reject(&:nsfw)
   end
 
+  # Sends a 'like' to 500px, returning a boolean to indicate success or failure.
   def like(id)
-    @client.post("photos/#{id}/vote?vote=1")
+    @client.post("photos/#{id}/vote?vote=1").success?
   end
 
+  # Removes a like from 500px, returning a boolean to indicate success or failure.
   def unlike(id)
-    @client.delete("photos/#{id}/vote")
+    @client.delete("photos/#{id}/vote").success?
   end
 
   protected

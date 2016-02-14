@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
 
   # Send a 'like' to 500px.
   def like
-    if photo_service.like(params[:id]).success?
+    if photo_service.like(params[:id])
       Like.find_or_create_by(user_id: session[:uid], photo_id: params[:id])
     end
     redirect_to :back
@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
 
   # 'Unlike' a photo - that is, remove a 'Like'.
   def unlike
-    if photo_service.unlike(params[:id]).success?
+    if photo_service.unlike(params[:id])
       Like.where(user_id: session[:uid], photo_id: params[:id]).delete_all
     end
     redirect_to :back

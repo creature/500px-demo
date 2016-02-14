@@ -17,9 +17,9 @@ html
 
     / Display flash messages
     - unless notice.blank?
-      p.notice = notice
+      p.flash.notice = notice
     - unless alert.blank?
-      p.alert = alert
+      p.flash.alert = alert
 
     main
       == yield
