@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.5.1'
-gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -20,6 +19,7 @@ gem 'omniauth-500px' # 500px omniauth strategy
 gem 'font-awesome-rails' # Icons and view helpers
 
 group :development, :test do
+  gem 'sqlite3' # Simple on-file database for dev.
   gem 'pry-remote' # Debugger that works nicely with Pow
   gem 'dotenv-rails' # Loads environment variables from a .env file
 end
@@ -35,3 +35,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+group :production do
+  gem 'rails_12factor' # Some 12-factor-app helpers, to make deploying to Heroku easier.
+  gem 'pg' # Heroku uses Postgres for its database
+end
