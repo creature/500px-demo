@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Logging in via oAuth" do
-  before { fake_login_via_omniauth }
+  before { fake_login_via_omniauth("Test user", 12345) }
 
   it "Allows a logged out user to log in" do
     visit root_path

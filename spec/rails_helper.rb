@@ -56,5 +56,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 end
 
-# Provide fake data for omniauth logins.
+# Provide fake data for omniauth logins, and remove any mock data between test runs.
 OmniAuth.config.test_mode = true
+

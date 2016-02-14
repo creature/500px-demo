@@ -1,8 +1,8 @@
-def fake_login_via_omniauth
+def fake_login_via_omniauth(name, id)
   allow_any_instance_of(SessionsController).to receive(:auth_hash).and_return(OmniAuth::AuthHash.new({
     provider: '500px',
-    uid: 12345,
-    info: { nickname: "Test user" },
+    uid: id,
+    info: { nickname: name },
     credentials: { token: "fake token", secret: "fake secret" }
   }))
 end

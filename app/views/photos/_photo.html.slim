@@ -4,9 +4,10 @@
   .info
     p
       span.caption #{link_to photo.name, photo.site_url} by #{photo.user_name}
-      - if @liked_ids.include? photo.id
-        = link_to unlike_photo_path(photo.id), class: "like"
-          = fa_icon "heart"
-      - else
-        = link_to like_photo_path(photo.id), class: "like"
-          = fa_icon "heart-o"
+      - if user_logged_in?
+        - if @liked_ids.include? photo.id
+          = link_to unlike_photo_path(photo.id), class: "like"
+            = fa_icon "heart"
+        - else
+          = link_to like_photo_path(photo.id), class: "like"
+            = fa_icon "heart-o"
