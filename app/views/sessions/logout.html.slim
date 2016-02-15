@@ -1,0 +1,5 @@
+h1 Are you sure you want to logout?
+
+= form_tag logout_path, method: "delete"
+  = submit_tag "Log out"
+  = link_to "Cancel", root_path

@@ -8,6 +8,10 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: "Logged in as #{auth_hash.info.nickname}."
   end
 
+  # Render a "Are you sure you want to logout?" page, for non-JavaScript users.
+  def logout
+  end
+
   # Log a user out by removing data from the session.
   def destroy
     [:uid, :user, :oauth_token, :oauth_secret].map { |sym| session[sym] = nil }
