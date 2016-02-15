@@ -24,3 +24,14 @@ html
     main
       == yield
 
+    footer
+      p
+        ' This website is a demo of using the #{link_to "500px API", "http://500px.com/"} in Rails. You can view the source code
+        = link_to "https://github.com/creature/500px-demo"
+          ' on Github #{fa_icon "github"}
+        | .
+      p
+        ' It was built by #{link_to "Alex Pounds", "http://alexpounds.com/"}, who you should
+        = link_to "https://twitter.com/acreature"
+          ' follow on Twitter #{fa_icon "twitter"}
+        | .

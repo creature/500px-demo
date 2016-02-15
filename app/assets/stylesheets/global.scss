@@ -10,7 +10,7 @@ main {
   @include outer-container;
 }
 
-header {
+header, footer {
   background-color: $slateish;
   color: $whiteish;
   text-align: center;
@@ -45,4 +45,18 @@ a {
     border: 2px solid darken(#F9BF3B, 20%);
   }
 
+}
+
+footer {
+  font-size: 80%;
+  color: darken($whiteish, 20%);
+  padding: 1rem;
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
