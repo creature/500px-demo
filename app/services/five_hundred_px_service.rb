@@ -9,7 +9,7 @@ class FiveHundredPxService
   end
 
   def most_popular(number = 100)
-    photos_from_json(@client.popular(rpp: number, image_size: 600).body).reject(&:nsfw)
+    photos_from_json(@client.popular(rpp: number, image_size: 600).body)
   end
 
   # Sends a 'like' to 500px, returning a boolean to indicate success or failure.

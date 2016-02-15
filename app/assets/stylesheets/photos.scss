@@ -3,9 +3,31 @@
   @include omega(4n);
   margin-bottom: 1rem;
   position: relative;
+  overflow: hidden;
 
   img {
     max-width: 100%;
+  }
+
+  &.nsfw img {
+    @include filter(blur(30px));
+  }
+
+  .nsfw_text {
+    color: $whiteish;
+    text-shadow:
+      -1px -1px 0 $blackish,
+      -1px 1px 0 $blackish,
+      1px -1px 0 $blackish,
+      1px 1px 0 $blackish;
+    z-index: 10;
+    position: absolute;
+    bottom: 33%;
+    width: 100%;
+    text-align: center;
+    font-size: 200%;
+    padding: 1 rem;
+
   }
 
   .info {
