@@ -1,0 +1,8 @@
+span.like
+  = fa_icon "cog", class: "fa-spin hidden", id: "spinner_#{id}"
+  - if "like" == hidden
+    = link_to fa_icon("heart"), unlike_photo_path(id), id: "unlike_button_#{id}", remote: true
+    = link_to fa_icon("heart-o"), like_photo_path(id), class: "hidden", id: "like_button_#{id}", remote: true
+  - else
+    = link_to fa_icon("heart"), unlike_photo_path(id), class: "hidden", id: "unlike_button_#{id}", remote: true
+    = link_to fa_icon("heart-o"), like_photo_path(id), id: "like_button_#{id}", remote: true

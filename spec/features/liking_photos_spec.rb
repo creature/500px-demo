@@ -24,16 +24,21 @@ describe "Liking photos" do
       our_liked_photo_id, other_liked_photo_id = (1..100).to_a.sample(2) # Pick two random IDs for our photos.
       Like.create(user_id: 12345, photo_id: our_liked_photo_id)
       Like.create(user_id: 54321, photo_id: other_liked_photo_id)
-
       visit root_path
-      # Should have a link to unlike our previously-liked photo...
-      expect(page).to have_link("", href: unlike_photo_path(our_liked_photo_id))
-      # Definitely shouldn't have a link to unlike someone else's liked photo...
-      expect(page).not_to have_link("", href: unlike_photo_path(other_liked_photo_id))
 
-      # ... or any of the others.
+      # Should have a visible link to unlike our previously-liked photo...
+      our_photo = page.find(".photo[data-photo-id='#{our_liked_photo_id}']")
+      expect(our_photo).not_to have_selector "#unlike_button_#{our_liked_photo_id}.hidden"
+
+      # Definitely shouldn't have a visible link to unlike someone else's liked photo...
+      other_liked_photo = page.find(".photo[data-photo-id='#{other_liked_photo_id}']")
+      expect(other_liked_photo).to have_selector "#unlike_button_#{other_liked_photo_id}.hidden"
+
+      # ... or any of the others. Like buttons should be visible, unlike buttons not.
       (1..100).reject { |n| [our_liked_photo_id, other_liked_photo_id].include? n }.each do |n|
-        expect(page).not_to have_link("", href: unlike_photo_path(n))
+        photo = page.find(".photo[data-photo-id='#{n}']")
+        expect(photo).to have_selector "#like_button_#{n}"
+        expect(photo).to have_selector "#unlike_button_#{n}.hidden"
       end
 
     end

@@ -1,4 +1,4 @@
-.photo class=("nsfw" if photo.nsfw)
+.photo class=("nsfw" if photo.nsfw) data-photo-id=photo.id
   = link_to photo.site_url
     = image_tag photo.image_url
 
@@ -14,8 +14,6 @@
       span.caption #{link_to photo.name, photo.site_url} by #{photo.user_name}
       - if user_logged_in?
         - if @liked_ids.include? photo.id
-          = link_to unlike_photo_path(photo.id), class: "like"
-            = fa_icon "heart"
+          = render partial: "photo_like_buttons", locals: { hidden: "like", id: photo.id }
         - else
-          = link_to like_photo_path(photo.id), class: "like"
-            = fa_icon "heart-o"
+          = render partial: "photo_like_buttons", locals: { hidden: "unlike", id: photo.id }

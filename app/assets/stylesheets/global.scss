@@ -10,6 +10,10 @@ main {
   @include outer-container;
 }
 
+.hidden {
+  display: none !important;
+}
+
 header, footer {
   background-color: $slateish;
   color: $whiteish;
